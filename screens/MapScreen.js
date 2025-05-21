@@ -51,7 +51,7 @@ export default function MapScreen({ route, navigation }) {
         <Marker
           coordinate={mapCoords}
           title={hospitalName || province || 'Lokasi tidak diketahui'}
-          description={address ? 'Lokasi akurat dari alamat' : 'Koordinat pusat provinsi'}
+          description={address ? address : 'Koordinat pusat provinsi'}
         />
       </MapView>
 
