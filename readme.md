@@ -1,5 +1,7 @@
 # 🏥 hospitalNav
 
+![gif-image](/hospital-nav.gif)
+
 ## 📄 Description
 hospitalNav is a mobile application that displays a list of Covid-19 referral hospitals in Indonesia. This app allows users to search for hospitals by name and view their locations on an interactive map.
 
