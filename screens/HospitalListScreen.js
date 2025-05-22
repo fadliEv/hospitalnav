@@ -9,24 +9,30 @@ export default function HospitalListScreen({ navigation }) {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(true); // loading state
 
-  useEffect(() => {
-    fetch('https://dekontaminasi.com/api/id/covid19/hospitals')
+  function getHospitalData(){
+     fetch('https://dekontaminasi.com/api/id/covid19/hospitals')
       .then(res => res.json())
       .then(data => {
         setHospitals(data);
         setFiltered(data);
-        setLoading(false); // selesai loading
+        setLoading(false);
       })
       .catch(err => {
         console.error(err);
-        setLoading(false); // selesai loading meskipun error
+        setLoading(false);
       });
+  }
+
+  useEffect(() => {
+    getHospitalData()
   }, []);
+
 
   const handleSearch = (text) => {
     setQuery(text);
     const filtered = hospitals.filter(h =>
-      h.name.toLowerCase().includes(text.toLowerCase())
+      h.name.toLowerCase().includes(text.toLowerCase()) ||
+      h.province.toLowerCase().includes(text.toLowerCase())
     );
     setFiltered(filtered);
   };
